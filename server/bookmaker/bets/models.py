@@ -35,7 +35,7 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
-    def get_players(self):
+    def get_event_players(self):
         return EventPlayer.objects.filter(event=self)
 
 
@@ -55,3 +55,9 @@ class Bet(models.Model):
 
     def __str__(self):
         return f'{self.event_player.player.name} - {self.event_player.event.name} - {self.event_player.odds} - {self.wager}'
+
+    def get_event(self):
+        return self.event_player.event
+
+    def get_possible_win(self):
+        return self.wager * self.event_player.odds
