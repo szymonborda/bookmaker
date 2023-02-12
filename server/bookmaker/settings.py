@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookmaker.accounts',
     'rest_framework',
+    'bookmaker.accounts',
+    'bookmaker.bets',
 ]
 
 MIDDLEWARE = [

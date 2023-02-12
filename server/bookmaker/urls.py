@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from bookmaker.bets.urls import router as bets_router
 
+router = DefaultRouter()
+router.registry.extend(bets_router.registry)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('bookmaker.accounts.urls')),
+    path('', include(router.urls)),
 ]
